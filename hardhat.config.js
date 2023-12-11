@@ -13,5 +13,9 @@ module.exports = {
             url: process.env.SEPOLIA_RPC_URL,
             accounts: [process.env.PRIVATE_KEY],
         },
+        localhost: {
+            url: process.env.LOCALHOST_RPC_URL,
+            chainId: 31337,
+        }
     },
 }
