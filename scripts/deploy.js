@@ -13,6 +13,15 @@ async function main() {
     const gradeStorage = await GradeStorageFactory.deploy()
     await gradeStorage.waitForDeployment()
     console.log("GradeStorage deployed to:", gradeStorage)
+
+    const currentGPA = await gradeStorage.getGPA()
+    console.log("Current GPA:", currentGPA.toString())
+
+    const transaction = await gradeStorage.addGrade("APL107", 7, 4)
+    await transaction.wait()
+
+    const newGPA = await gradeStorage.getGPA()
+    console.log("New GPA:", newGPA.toString())
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -33,6 +33,7 @@ contract GradeStorage {
     ) public {
         Courses.push(Course(_code, _grade, _credits));
         courseToGrade[_code] = _grade;
+        updateGPA();
     }
 
     function getGPA() public view returns (uint256) {
